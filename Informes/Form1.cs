@@ -41,13 +41,15 @@ namespace Informes
             /** Haberes **/
             /* Imponible */
             ReportParameter sueldoBase          = new ReportParameter("txtSueldoBase", txtSueldoBase.Text);
-            ReportParameter descuento           = new ReportParameter("txtDescuentos", txtDescuento.Text);
-            ReportParameter gratificacion       = new ReportParameter("txtValorGratificacion", txtGratificacion.Text);
-            ReportParameter totalImponible      = new ReportParameter("txtTotalImponible", txtTotalImponible.Text);
+            ReportParameter descuento           = new ReportParameter("txtDescuentos", txtDescuento.Text);  
+            ReportParameter totalImponible      = new ReportParameter("txtTotalImponible", txtTotalImponible.Text);       
+            ReportParameter gratificacion = new ReportParameter("txtValorGratificacion", txtGratificacion.Text);
+            parametros.Add(gratificacion);        
             parametros.Add(sueldoBase);
             parametros.Add(descuento);
-            parametros.Add(gratificacion);
+            
             parametros.Add(totalImponible);
+        
             /* No Imponible */
             ReportParameter movilizacion        = new ReportParameter("txtValorMovilizacion", txtMovilizacion.Text);
             ReportParameter colacion            = new ReportParameter("txtValorColacion", txtColacion.Text);

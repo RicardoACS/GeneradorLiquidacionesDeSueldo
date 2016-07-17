@@ -877,7 +877,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Gratificación</Value>
+                <Value>=IIF(Parameters!txtValorGratificacion.Value &gt; 0,"Graticiación", " ")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -906,7 +906,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtValorGratificacion.Value</Value>
+                <Value>=IIF(Parameters!txtValorGratificacion.Value &gt; 0,Parameters!txtValorGratificacion.Value, " ")</Value>
                 <Style>
                   <Format>#,0;(#,0)</Format>
                 </Style>
@@ -1065,7 +1065,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtValorMovilizacion.Value</Value>
+                <Value>=IIF(Parameters!txtValorMovilizacion.Value &gt; 0,Parameters!txtValorMovilizacion.Value," ")</Value>
                 <Style>
                   <Format>#,0;(#,0)</Format>
                 </Style>
@@ -1098,7 +1098,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Movilización</Value>
+                <Value>=IIF(Parameters!txtValorMovilizacion.Value &gt; 0,"Movilización"," ")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1195,7 +1195,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtValorSeguros.Value</Value>
+                <Value>=IIF(Parameters!txtValorSeguros.Value &gt; 0,Parameters!txtValorSeguros.Value," ")</Value>
                 <Style>
                   <Format>n0</Format>
                 </Style>
@@ -1228,7 +1228,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Seguros</Value>
+                <Value>=IIF(Parameters!txtValorSeguros.Value &gt; 0,"Seguros"," ")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1505,7 +1505,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Total No Imponible</Value>
+                <Value>=IIF(Parameters!txtValorTotalNoImponible.Value &gt; 0, "Total No Imponible", " ")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -1538,7 +1538,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtValorTotalNoImponible.Value</Value>
+                <Value>=IIF(Parameters!txtValorTotalNoImponible.Value &gt; 0, Parameters!txtValorTotalNoImponible.Value, " ")</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                   <Format>#,0;(#,0)</Format>
@@ -1572,7 +1572,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Colación</Value>
+                <Value>=IIF(Parameters!txtValorColacion.Value &gt; 0,"Colación"," ")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1602,7 +1602,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtValorColacion.Value</Value>
+                <Value>=IIF(Parameters!txtValorColacion.Value &gt; 0,Parameters!txtValorColacion.Value," ")</Value>
                 <Style>
                   <Format>#,0;(#,0)</Format>
                 </Style>
@@ -1635,7 +1635,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Otros Descuentos</Value>
+                <Value>=IIF(Parameters!txtOtrosDescuentos.Value &gt; 0,"Otros Descuentos"," ")</Value>
                 <Style>
                   <Format>n0</Format>
                 </Style>
@@ -1666,7 +1666,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtOtrosDescuentos.Value</Value>
+                <Value>=IIF(Parameters!txtOtrosDescuentos.Value &gt; 0,Parameters!txtOtrosDescuentos.Value," ")</Value>
                 <Style>
                   <Format>n0</Format>
                 </Style>
@@ -2066,7 +2066,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Parameters!txtValorImpuesto.Value</Value>
+                <Value>=IIF(Parameters!txtValorImpuesto.Value &gt; 0, Parameters!txtValorImpuesto.Value, " ")</Value>
                 <Style>
                   <Format>n0</Format>
                 </Style>
@@ -2099,7 +2099,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Impuesto 2° Cat.</Value>
+                <Value>=IIF(Parameters!txtValorImpuesto.Value &gt; 0, "Impuesto 2° Cat.", " ")</Value>
                 <Style>
                   <Format>n0</Format>
                 </Style>
@@ -2182,6 +2182,7 @@
     </ReportParameter>
     <ReportParameter Name="txtValorGratificacion">
       <DataType>Integer</DataType>
+      <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="txtTotalImponible">
