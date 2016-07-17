@@ -877,7 +877,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Parameters!txtValorGratificacion.Value &gt; 0,"Graticiación", " ")</Value>
+                <Value>=IIF(Parameters!txtValorGratificacion.Value &gt; 0,"Gratificación", " ")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
