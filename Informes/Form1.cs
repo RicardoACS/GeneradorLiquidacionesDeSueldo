@@ -42,10 +42,12 @@ namespace Informes
             /* Imponible */
             ReportParameter sueldoBase          = new ReportParameter("txtSueldoBase", txtSueldoBase.Text);
             ReportParameter descuento           = new ReportParameter("txtDescuentos", txtDescuento.Text);  
-            ReportParameter totalImponible      = new ReportParameter("txtTotalImponible", txtTotalImponible.Text);       
-            ReportParameter gratificacion = new ReportParameter("txtValorGratificacion", txtGratificacion.Text);
+            ReportParameter totalImponible      = new ReportParameter("txtTotalImponible", txtTotalImponible.Text);
+            ReportParameter bonos               = new ReportParameter("txtBono", txtBonos.Text);
+            ReportParameter gratificacion       = new ReportParameter("txtValorGratificacion", txtGratificacion.Text);
             parametros.Add(gratificacion);        
             parametros.Add(sueldoBase);
+            parametros.Add(bonos);
             parametros.Add(descuento);
             
             parametros.Add(totalImponible);
@@ -53,9 +55,11 @@ namespace Informes
             /* No Imponible */
             ReportParameter movilizacion        = new ReportParameter("txtValorMovilizacion", txtMovilizacion.Text);
             ReportParameter colacion            = new ReportParameter("txtValorColacion", txtColacion.Text);
+            ReportParameter asignacionFamiliar  = new ReportParameter("txtAsignacionFamiliar", txtAF.Text);
             ReportParameter totalNoImponible    = new ReportParameter("txtValorTotalNoImponible", txtTotalNoImponible.Text);
             parametros.Add(movilizacion);
             parametros.Add(colacion);
+            parametros.Add(asignacionFamiliar);
             parametros.Add(totalNoImponible);
             /* Total Haberes */
             ReportParameter totalHaberes        = new ReportParameter("txtTotalHaberes", txtTotalHaberes.Text);
@@ -124,7 +128,8 @@ namespace Informes
                 int sueldoBase          = int.Parse(txtSueldoBase.Text);
                 int descuentos          = int.Parse(txtDescuento.Text);
                 int gratificacion       = int.Parse(txtGratificacion.Text);
-                int totalImponible      = sueldoBase - descuentos + gratificacion;
+                int bonos               = int.Parse(txtBonos.Text);
+                int totalImponible      = sueldoBase - descuentos + gratificacion + bonos;
                 txtTotalImponible.Text  = totalImponible.ToString();
             }
             catch(Exception)
@@ -137,11 +142,12 @@ namespace Informes
         {
             try
             {
-                int sueldoBase          = int.Parse(txtSueldoBase.Text);
-                int descuentos          = int.Parse(txtDescuento.Text);
-                int gratificacion       = int.Parse(txtGratificacion.Text);
-                int totalImponible      = sueldoBase - descuentos + gratificacion;
-                txtTotalImponible.Text  = totalImponible.ToString();
+                int sueldoBase = int.Parse(txtSueldoBase.Text);
+                int descuentos = int.Parse(txtDescuento.Text);
+                int gratificacion = int.Parse(txtGratificacion.Text);
+                int bonos = int.Parse(txtBonos.Text);
+                int totalImponible = sueldoBase - descuentos + gratificacion + bonos;
+                txtTotalImponible.Text = totalImponible.ToString();
             }
             catch (Exception)
             {
@@ -153,11 +159,12 @@ namespace Informes
         {
             try
             {
-                int sueldoBase          = int.Parse(txtSueldoBase.Text);
-                int descuentos          = int.Parse(txtDescuento.Text);
-                int gratificacion       = int.Parse(txtGratificacion.Text);
-                int totalImponible      = sueldoBase - descuentos + gratificacion;
-                txtTotalImponible.Text  = totalImponible.ToString();
+                int sueldoBase = int.Parse(txtSueldoBase.Text);
+                int descuentos = int.Parse(txtDescuento.Text);
+                int gratificacion = int.Parse(txtGratificacion.Text);
+                int bonos = int.Parse(txtBonos.Text);
+                int totalImponible = sueldoBase - descuentos + gratificacion + bonos;
+                txtTotalImponible.Text = totalImponible.ToString();
             }
             catch (Exception)
             {
@@ -171,7 +178,8 @@ namespace Informes
             {
                 int movilizacion            = int.Parse(txtMovilizacion.Text);
                 int colacion                = int.Parse(txtColacion.Text);
-                int totalNoImponible        = movilizacion + colacion;
+                int asignacionFamiliar      = int.Parse(txtAF.Text);
+                int totalNoImponible        = movilizacion + colacion + asignacionFamiliar;
                 txtTotalNoImponible.Text    = totalNoImponible.ToString();
             }
             catch (Exception)
@@ -184,10 +192,11 @@ namespace Informes
         {
             try
             {
-                int movilizacion            = int.Parse(txtMovilizacion.Text);
-                int colacion                = int.Parse(txtColacion.Text);
-                int totalNoImponible        = movilizacion + colacion;
-                txtTotalNoImponible.Text    = totalNoImponible.ToString();
+                int movilizacion = int.Parse(txtMovilizacion.Text);
+                int colacion = int.Parse(txtColacion.Text);
+                int asignacionFamiliar = int.Parse(txtAF.Text);
+                int totalNoImponible = movilizacion + colacion + asignacionFamiliar;
+                txtTotalNoImponible.Text = totalNoImponible.ToString();
             }
             catch (Exception)
             {
@@ -199,10 +208,10 @@ namespace Informes
         {
             try
             {
-                int totalImponible          = int.Parse(txtTotalImponible.Text);
-                int totalNoImponible        = int.Parse(txtTotalNoImponible.Text);
-                int totalHaberes            = totalImponible + totalNoImponible;
-                txtTotalHaberes.Text        = totalHaberes.ToString();
+                int totalImponible = int.Parse(txtTotalImponible.Text);
+                int totalNoImponible = int.Parse(txtTotalNoImponible.Text);
+                int totalHaberes = totalImponible + totalNoImponible;
+                txtTotalHaberes.Text = totalHaberes.ToString();
             }
             catch (Exception)
             {
@@ -403,6 +412,39 @@ namespace Informes
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtBonos_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int sueldoBase = int.Parse(txtSueldoBase.Text);
+                int descuentos = int.Parse(txtDescuento.Text);
+                int gratificacion = int.Parse(txtGratificacion.Text);
+                int bonos = int.Parse(txtBonos.Text);
+                int totalImponible = sueldoBase - descuentos + gratificacion + bonos;
+                txtTotalImponible.Text = totalImponible.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void txtAF_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int movilizacion = int.Parse(txtMovilizacion.Text);
+                int colacion = int.Parse(txtColacion.Text);
+                int asignacionFamiliar = int.Parse(txtAF.Text);
+                int totalNoImponible = movilizacion + colacion + asignacionFamiliar;
+                txtTotalNoImponible.Text = totalNoImponible.ToString();
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }
